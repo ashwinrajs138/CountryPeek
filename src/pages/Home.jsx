@@ -15,6 +15,8 @@ function Home() {
       setCountries([])
       setError(null)
       setLoading(false)
+    } else {
+      setLoading(true)
     }
   }
 
@@ -27,7 +29,6 @@ function Home() {
 
     const controller = new AbortController()
     const timer = setTimeout(async () => {
-      setLoading(true)
       setCountries([])
       setError(null)
 
@@ -38,7 +39,15 @@ function Home() {
         )
 
         if (!response.ok) {
-          throw new Error('No countries found.')
+          if (response.status === 404) {
+            throw new Error('No countries found.')
+          }
+
+          if (response.status >= 500) {
+            throw new Error('Server error. Please try again later.')
+          }
+
+          throw new Error('Failed to fetch countries.')
         }
 
         const data = await response.json()
@@ -49,7 +58,11 @@ function Home() {
         }
 
         setCountries([])
-        setError('No countries found.')
+        setError(
+          fetchError instanceof Error
+            ? fetchError.message
+            : 'Something went wrong. Please try again.'
+        )
       } finally {
         if (!controller.signal.aborted) {
           setLoading(false)
