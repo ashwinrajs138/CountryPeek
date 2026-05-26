@@ -46,15 +46,17 @@ function Home() {
       {loading ? <p className="home__placeholder">Loading countries...</p> : null}
       {!loading && error ? <p className="home__placeholder">{error}</p> : null}
 
-      {!loading && !error && countries.length === 0 ? (
+      {!query.trim() ? (
+        <p className="home__placeholder">Start searching to explore countries.</p>
+      ) : null}
+
+      {query.trim() && !loading && !error && countries.length === 0 ? (
         <p className="home__placeholder">
-          {query.trim()
-            ? 'No countries found. Try another search term.'
-            : 'Start searching to explore countries.'}
+          No countries found. Try another search term.
         </p>
       ) : null}
 
-      {!loading && !error && countries.length > 0 ? (
+      {query.trim() && !loading && !error && countries.length > 0 ? (
         <section className="cards-grid">
           {displayed.map((country) => (
             <CountryCard key={country.cca3} country={country} />

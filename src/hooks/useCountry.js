@@ -7,9 +7,6 @@ export default function useCountry(code) {
 
   useEffect(() => {
     if (!code) {
-      setCountry(null)
-      setError('')
-      setLoading(false)
       return undefined
     }
 

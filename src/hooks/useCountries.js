@@ -9,9 +9,6 @@ export default function useCountries(query) {
     const searchQuery = query.trim()
 
     if (!searchQuery) {
-      setCountries([])
-      setLoading(false)
-      setError('')
       return undefined
     }
 
