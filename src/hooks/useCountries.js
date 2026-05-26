@@ -54,5 +54,11 @@ export default function useCountries(query) {
     }
   }, [query])
 
-  return { countries, loading, error }
+  const hasQuery = Boolean(query.trim())
+
+  return {
+    countries: hasQuery ? countries : [],
+    loading: hasQuery ? loading : false,
+    error: hasQuery ? error : '',
+  }
 }

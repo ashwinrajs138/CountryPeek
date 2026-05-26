@@ -47,5 +47,11 @@ export default function useCountry(code) {
     }
   }, [code])
 
-  return { country, loading, error }
+  const hasCode = Boolean(code)
+
+  return {
+    country: hasCode ? country : null,
+    loading: hasCode ? loading : false,
+    error: hasCode ? error : '',
+  }
 }
