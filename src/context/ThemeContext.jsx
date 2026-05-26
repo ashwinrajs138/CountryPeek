@@ -1,0 +1,1 @@
+export const themeContextPlaceholder = null
