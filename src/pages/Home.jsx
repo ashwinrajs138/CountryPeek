@@ -10,7 +10,7 @@ function Home() {
   const [sortBy, setSortBy] = useState('')
   const { countries, loading, error } = useCountries(query)
 
-  const displayed = [...countries]
+  const displayed = countries
     .filter((country) => region === 'All' || country.region === region)
     .sort((a, b) => {
       if (sortBy === 'name') {

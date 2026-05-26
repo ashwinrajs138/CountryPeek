@@ -44,7 +44,7 @@ function CountryPage() {
             <strong>Region:</strong> {country.region || 'N/A'}
           </p>
           <p>
-            <strong>Sub Region:</strong> {country.subregion || 'N/A'}
+            <strong>Subregion:</strong> {country.subregion || 'N/A'}
           </p>
           <p>
             <strong>Capital:</strong> {country.capital?.join(', ') || 'N/A'}

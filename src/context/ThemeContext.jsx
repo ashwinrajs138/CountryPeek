@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import ThemeContext from './theme-context'
+import ThemeContext from './ThemeStoreContext'
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState('light')
