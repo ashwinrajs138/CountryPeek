@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import SearchBar from '../components/SearchBar'
 import CountryCard from '../components/CountryCard'
 
+const SEARCH_DEBOUNCE_MS = 400
+
 function Home() {
   const [query, setQuery] = useState('')
   const [countries, setCountries] = useState([])
@@ -28,7 +30,8 @@ function Home() {
     }
 
     const controller = new AbortController()
-    const timer = setTimeout(async () => {
+
+    const fetchCountries = async () => {
       setCountries([])
       setError(null)
 
@@ -68,7 +71,11 @@ function Home() {
           setLoading(false)
         }
       }
-    }, 400)
+    }
+
+    const timer = setTimeout(() => {
+      fetchCountries()
+    }, SEARCH_DEBOUNCE_MS)
 
     return () => {
       clearTimeout(timer)
