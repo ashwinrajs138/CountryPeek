@@ -33,7 +33,62 @@
   padding: 1.5rem;
 }
 
-.home__placeholder {
-  margin-top: 1rem;
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+  padding: 0.5rem 0 1rem;
+}
+
+.card {
+  display: block;
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.14);
+}
+
+.card__flag {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card__body {
+  padding: 1rem;
+}
+
+.card__name {
+  margin: 0 0 0.65rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.card__body p {
+  margin: 0.35rem 0;
+  font-size: 0.9rem;
   color: #6b7280;
+}
+
+.card__body p span {
+  font-weight: 600;
+  color: #374151;
+}
+
+.home__status {
+  padding: 1rem 0;
+  color: #6b7280;
+}
+
+.home__status--error {
+  color: #dc2626;
 }
