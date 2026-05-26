@@ -1,5 +1,5 @@
 function Favourites() {
-  return null
+  return <div className="home">Favourites coming soon.</div>
 }
 
 export default Favourites

@@ -1,5 +1,5 @@
 function CountryPage() {
-  return null
+  return <div className="home">Country details coming soon.</div>
 }
 
 export default CountryPage
